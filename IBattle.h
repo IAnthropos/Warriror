@@ -1,13 +1,16 @@
 #ifndef IBATTLE_H
 
 #define IBATTLE_H
-#include "Scene.h"
+#include "ISquad.h"
+#include "IWarrior.h"
+#include "IRules.h"
+#include "IScene.h"
+#include <memory>
 
 class IBattle
 {
 public:
     ~IBattle() = default;
-    virtual void start() = 0;
-    virtual void end() = 0;
+    virtual void start(const std::shared_ptr<IRules>& rules, IScene& scene) = 0;
 };
 #endif // IBATTLE_H
